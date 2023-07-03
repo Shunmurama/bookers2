@@ -1,0 +1,12 @@
+<%= form_with model: @user do |f| %>
+
+<h2>User info</h2>
+<h4>name</h4>
+<%= f.text_field :name %>
+<h4>image</h4>
+<%= f.file_field :profile_image %>
+<h4>introduce</h4>
+<%= f.text_area :introduction %>
+<%= f.submit "Update User" %>
+
+<% end %>
