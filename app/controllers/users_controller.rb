@@ -33,6 +33,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
 
   def update
     @user = User.find(params[:id])
+    @user = current_user
     if @user = User.update(user_params)
       flash[:notice] = "Book was successfully update."
       redirect_to user_path(@user.id)
@@ -44,7 +45,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduce,:image)
+    params.require(:user).permit(:name, :introduce, :image)
   end
 
 
