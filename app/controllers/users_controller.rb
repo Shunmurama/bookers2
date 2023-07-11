@@ -33,8 +33,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
 
   def update
     @user = User.find(params[:id])
-    @user = current_user
-    if @user = User.update(user_params)
+    if @user.update(user_params)
       flash[:notice] = "Book was successfully update."
       redirect_to user_path(@user.id)
     else
