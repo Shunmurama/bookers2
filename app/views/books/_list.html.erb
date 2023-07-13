@@ -14,8 +14,8 @@
     <h2>User info</h2>
      <table class='table'>
   <tr>
-    <% if user.image.attached? %>
-       <%= image_tag user.image, size: "50x50" %>
+    <% if user.profile_image.attached? %>
+       <%= image_tag user.profile_image, size: "50x50" %>
     <% else %>
        <%= image_tag 'no_image', size: "50x50" %>
     <% end %>
@@ -26,7 +26,11 @@
   </tr>
   <tr>
 	  <th>introduction</th>
-	  <th><%= user.introduce %></th>
+	  <th><% if current_user.id == @user.id %>
+	       <%= user.introduction %>
+	      <% else %>
+	      <% end %>
+	   </th>
   </tr>
 </table>
 

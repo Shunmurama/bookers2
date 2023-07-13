@@ -24,18 +24,20 @@
     </tr>
   </thead>
 
+  <% @users.each do |user| %>
   <tbody>
       <tr>
-        <td><% if @user.image.attached? %>
-               <%= image_tag @user.image, size: "50x50" %>
+        <td><% if user.profile_image.attached? %>
+               <%= image_tag user.profile_image, size: "50x50" %>
             <% else %>
                <%= image_tag 'no_image', size: "50x50" %>
             <% end %>
         </td>
-        <td><%= @user.name %></td>
-        <td><%= link_to 'Show', user_path(@user.id) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Show', user_path(user.id) %></td>
       </tr>
      </tbody>
+  <% end %>
    </table>
  </div>
 
