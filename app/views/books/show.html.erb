@@ -15,16 +15,21 @@
   		<h2>Book detail</h2>
   		<table class='table'>
   		  <tr>
-          <td><% if @book.user.profile_image.attached? %>
-                 <%= link_to user_path(@book.user.id) do %>
-                   <%= image_tag @book.user.profile_image, size: "50x50" %>
-                 <% end %>
-              <% else %>
-                 <%= link_to user_path(@book.user.id) do %>
-                   <%= image_tag 'no_image', size: "50x50" %>
-                 <% end %>
-                <% end %>
-              <%= link_to @book.user.name, user_path(@book.user) %>
+          <td>
+           <div class="flex-column">
+            <div>
+             <% if @book.user.profile_image.attached? %>
+              <%= link_to user_path(@book.user.id) do %>
+               <%= image_tag @book.user.profile_image, size: "100x100" %>
+              <% end %>
+             <% else %>
+              <%= link_to user_path(@book.user.id) do %>
+               <%= image_tag 'no_image', size: "100x100" %>
+              <% end %>
+             <% end %>
+            </div>
+                <div><%= link_to @book.user.name, user_path(@book.user) %></div>
+           </div>
           </td>
           <td><%= link_to @book.title, book_path(@book.id) %></td>
           <td><%= @book.body %></td>
